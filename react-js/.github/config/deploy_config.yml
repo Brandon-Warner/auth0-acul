@@ -6,7 +6,7 @@
 default_screen_deployment_status:
   "login-id": false
   "login-password": false
-  "login": false
+  "login": true
   # Screens not yet implemented:
   # "accept-invitation": false
   # "brute-force-protection-unblock": false
