@@ -110,12 +110,19 @@ function LoginIdForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="relative">
+        {/* Decorative gradient accent at top of form */}
+        <div className="absolute -top-2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-50"></div>
+
         {/* General alerts at the top */}
         {generalErrors.length > 0 && (
           <div className="space-y-3 mb-4">
             {generalErrors.map((error: Error, index: number) => (
-              <ULThemeAlert key={index} variant="destructive">
+              <ULThemeAlert
+                key={index}
+                variant="destructive"
+                className="border-2 shadow-lg"
+              >
                 <ULThemeAlertTitle>{error.message}</ULThemeAlertTitle>
               </ULThemeAlert>
             ))}
@@ -142,17 +149,21 @@ function LoginIdForm() {
             required: locales.form.fields.identifier.required,
           }}
           render={({ field, fieldState }) => (
-            <FormItem>
-              <ULThemeFloatingLabelField
-                {...field}
-                id="username"
-                value={String(field.value || "")}
-                label={identifierLabel}
-                type={identifierType}
-                autoFocus={true}
-                autoComplete={identifierAutoComplete}
-                error={!!fieldState.error || !!identifierSDKError}
-              />
+            <FormItem className="mb-4">
+              <div className="group relative">
+                <ULThemeFloatingLabelField
+                  {...field}
+                  id="username"
+                  value={String(field.value || "")}
+                  label={identifierLabel}
+                  type={identifierType}
+                  autoFocus={true}
+                  autoComplete={identifierAutoComplete}
+                  error={!!fieldState.error || !!identifierSDKError}
+                />
+                {/* Subtle gradient border effect on focus */}
+                <div className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 opacity-0 blur transition-opacity duration-300 group-focus-within:opacity-100"></div>
+              </div>
               <ULThemeFormMessage
                 sdkError={identifierSDKError}
                 hasFormError={!!fieldState.error}
@@ -163,35 +174,43 @@ function LoginIdForm() {
 
         {/* CAPTCHA Box */}
         {isCaptchaAvailable && captchaConfig && (
-          <Captcha
-            control={form.control}
-            name="captcha"
-            captcha={captchaConfig}
-            {...captchaProps}
-            sdkError={captchaSDKError}
-            rules={{
-              required: locales.form.fields.captcha.required,
-            }}
-          />
+          <div className="mb-4">
+            <Captcha
+              control={form.control}
+              name="captcha"
+              captcha={captchaConfig}
+              {...captchaProps}
+              sdkError={captchaSDKError}
+              rules={{
+                required: locales.form.fields.captcha.required,
+              }}
+            />
+          </div>
         )}
 
         {/* Forgot Password link */}
         {isForgotPasswordEnabled && resetPasswordLink && (
-          <div className="mb-4 mt-2 text-left">
-            <ULThemeLink href={resetPasswordLink}>
+          <div className="mb-6 mt-2 text-left">
+            <ULThemeLink
+              href={resetPasswordLink}
+              className="text-purple-600 hover:text-purple-700 font-medium transition-colors duration-200"
+            >
               {forgotPasswordText}
             </ULThemeLink>
           </div>
         )}
 
-        {/* Submit button */}
-        <ULThemePrimaryButton
-          type="submit"
-          className="w-full"
-          disabled={isSubmitting}
-        >
-          {buttonText}
-        </ULThemePrimaryButton>
+        {/* Submit button with gradient styling */}
+        <div className="relative group">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg opacity-75 blur transition duration-300 group-hover:opacity-100"></div>
+          <ULThemePrimaryButton
+            type="submit"
+            className="relative w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+            disabled={isSubmitting}
+          >
+            {buttonText}
+          </ULThemePrimaryButton>
+        </div>
       </form>
     </Form>
   );

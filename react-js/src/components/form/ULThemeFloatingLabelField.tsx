@@ -47,21 +47,29 @@ const ulThemeFloatingLabelFieldVariants = cva(
     variants: {
       themeState: {
         default: [
-          // Focus States - Default
-          "theme-universal:focus-within:border-base-focus",
-          "theme-universal:focus-within:ring-1",
-          "theme-universal:focus-within:ring-base-focus",
+          // Focus States - Default with purple gradient glow
+          "theme-universal:focus-within:border-purple-500",
+          "theme-universal:focus-within:ring-2",
+          "theme-universal:focus-within:ring-purple-500/50",
+          "theme-universal:focus-within:shadow-lg",
+          "theme-universal:focus-within:shadow-purple-500/20",
+          "transition-all",
+          "duration-300",
 
           // Focus Label States - Override label color when focused
-          "theme-universal:focus-within:[&_label]:text-base-focus",
+          "theme-universal:focus-within:[&_label]:text-purple-600",
         ],
         error: [
           // Error States
           "theme-universal:text-error",
           "theme-universal:border-error",
           "theme-universal:focus-within:border-error",
-          "theme-universal:focus-within:ring-1",
-          "theme-universal:focus-within:ring-error",
+          "theme-universal:focus-within:ring-2",
+          "theme-universal:focus-within:ring-error/50",
+          "theme-universal:focus-within:shadow-lg",
+          "theme-universal:focus-within:shadow-error/20",
+          "transition-all",
+          "duration-300",
 
           // Error Label States - Force override using color CSS property
           "theme-universal:[&_label]:text-error",

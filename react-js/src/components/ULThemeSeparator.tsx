@@ -13,18 +13,14 @@ export interface ULThemeSeparatorProps {
 
 const ULThemeSeparator = ({ text, className }: ULThemeSeparatorProps) => {
   // Base styles
-  const containerStyles = "relative flex items-center my-4";
+  const containerStyles = "relative flex items-center my-6";
 
-  // Theme overrides for line
-  const themedLineStyles = cn(
-    "flex-grow border-t",
-    "theme-universal:border-input-border"
-  );
+  // Theme overrides for line with gradient
+  const themedLineStyles = cn("flex-grow border-t border-gray-300");
 
   // Theme overrides for text
   const themedTextStyles = cn(
-    "flex-shrink px-2",
-    "theme-universal:text-body-text",
+    "flex-shrink mx-4 text-sm font-medium text-gray-500 uppercase tracking-wider",
     "theme-universal:text-(length:--ul-theme-font-body-text-size)",
     "theme-universal:font-body"
   );

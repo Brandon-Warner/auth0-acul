@@ -17,11 +17,16 @@ const ULThemeCard = ({ children, className, ...rest }: ULThemeCardProps) => {
   const themeClasses = cn(
     "px-10",
     "py-10",
-    "theme-universal:bg-widget-bg",
-    "theme-universal:border-(--color-widget-border)",
+    "bg-gray-50/95",
+    "backdrop-blur-xl",
+    "shadow-2xl",
+    "hover:shadow-purple-500/20",
+    "transition-all",
+    "duration-500",
+    "hover:-translate-y-1",
+    "border",
+    "border-white/20",
     "theme-universal:rounded-widget",
-    "theme-universal:shadow-widget",
-    "theme-universal:border-(length:--border-widget)",
     className
   );
 

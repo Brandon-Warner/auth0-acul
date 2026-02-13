@@ -30,9 +30,9 @@ const ULThemeLink = ({
   ref,
   ...props
 }: ULThemeLinkProps) => {
-  // Base component styles
+  // Base component styles with purple theme
   const baseStyles =
-    "text-link-focus text-(length:--ul-theme-font-links-size) font-(weight:--ul-theme-font-links-weight) focus:rounded-(--ul-theme-border-links-border-radius) hover:text-link-focus/80";
+    "text-purple-600 hover:text-purple-700 font-medium transition-colors duration-200 text-(length:--ul-theme-font-links-size) font-(weight:--ul-theme-font-links-weight) focus:rounded-(--ul-theme-border-links-border-radius)";
 
   // Disabled state styles
   const disabledStyles = disabled
@@ -41,7 +41,7 @@ const ULThemeLink = ({
 
   // UL theme overrides
   const variantThemeOverrides =
-    "theme-universal:focus:outline-none theme-universal:focus:ring-4 theme-universal:focus:ring-base-focus/15 theme-universal:focus:bg-base-focus/15"; // focus base color
+    "theme-universal:focus:outline-none theme-universal:focus:ring-4 theme-universal:focus:ring-purple-500/30 theme-universal:focus:bg-purple-50";
 
   // Using extractTokenValue utility to extract the link style variant type from the CSS variable
   const linkStyleValue =

@@ -41,26 +41,25 @@ const ULThemeSocialProviderButton = ({
   // Data Test Id needed for targetting element
   const dataTestId = `social-provider-button-${displayName.toLowerCase().replace(/\s+/g, "-")}`;
 
-  // Base Styles getting applied for look and feel
+  // Base Styles getting applied for look and feel with modern gradient touch
   const baseStyles =
-    "flex items-center justify-start w-full max-w-[320px] h-[52px] py-[14px] px-[16px] gap-x-4";
+    "flex items-center justify-start w-full max-w-[320px] h-[52px] py-[14px] px-[16px] gap-x-4 transition-all duration-300";
 
-  // Keeping the button enable and disable styles as is. Will need to revisit this in future if needed
+  // Enhanced enable and disable styles with modern look
   const enabledStyles =
-    "bg-white border-gray-mid text-text-default cursor-pointer";
+    "bg-white border-gray-300 text-gray-800 cursor-pointer hover:border-gray-400 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0";
   const disabledStyles =
-    "bg-gray-mid/10 border-gray-mid/50 text-text-secondary cursor-not-allowed";
+    "bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed opacity-60";
 
-  // UL theme overrrides
+  // UL theme overrides with modern styling
   const variantThemeOverrides = {
     outline: cn(
-      "theme-universal:font-button", //font-weight
-      "theme-universal:rounded-button", // border-radius
-      "theme-universal:border-(length:--ul-theme-border-button-border-weight)", // border-weight or border-width
-      "theme-universal:border-(--color-secondary-button-border)", // border-color
-      "theme-universal:text-(--color-secondary-button-label)", // text label color
-      "theme-universal:hover:shadow-[var(--button-hover-shadow)]", // box-shadow on hover
-      "theme-universal:focus:outline-none theme-universal:focus:ring-4 theme-universal:focus:ring-base-focus/15 theme-universal:focus:bg-base-focus/15" // focus base color
+      "border-2",
+      "relative",
+      "overflow-hidden",
+      "theme-universal:font-button",
+      "theme-universal:rounded-button",
+      "theme-universal:focus:outline-none theme-universal:focus:ring-2 theme-universal:focus:ring-purple-500/50 theme-universal:focus:ring-offset-2"
     ),
     primary: "", // Add primary overrides if needed
     secondary: "", // Add secondary overrides if needed

@@ -44,15 +44,15 @@ export const ULThemePasswordField = ({
           // Border Radius - matches input field
           "theme-universal:rounded-r-input theme-universal:rounded-l-none",
 
-          // Colors
-          "theme-universal:text-input-labels",
-          "theme-universal:hover:text-input-text",
+          // Colors with purple theme
+          "text-gray-500",
+          "hover:text-purple-600",
 
           // Transitions
-          "transition-colors",
+          "transition-colors duration-200",
 
-          // Focus States
-          "theme-universal:focus:bg-base-focus/15 theme-universal:focus-visible:ring-1 theme-universal:focus-visible:ring-base-focus theme-universal:focus-visible:ring-offset-0",
+          // Focus States with purple theme
+          "focus:bg-purple-50 focus-visible:ring-2 focus-visible:ring-purple-500/50 focus-visible:ring-offset-0",
 
           // Layout
           "flex items-center justify-center",

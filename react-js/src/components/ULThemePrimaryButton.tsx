@@ -12,15 +12,20 @@ export function ULThemePrimaryButton({
   // Variant-specific theme overrides for colors and states
   const variantThemeOverrides = {
     primary: cn(
+      "relative",
       "p-6 border-0",
       "cursor-pointer",
-      "theme-universal:bg-primary-button",
-      "theme-universal:text-(--ul-theme-color-primary-button-label)", //text-color
-      "theme-universal:hover:shadow-[var(--button-hover-shadow)]",
-      "theme-universal:focus:outline-none theme-universal:focus:ring-4 theme-universal:focus:ring-base-focus/15",
-      "theme-universal:disabled:bg-primary-button/70",
-      "theme-universal:disabled:border-primary-button/70",
-      "theme-universal:disabled:cursor-not-allowed"
+      "bg-gradient-to-r from-indigo-600 to-purple-600",
+      "hover:from-indigo-700 hover:to-purple-700",
+      "text-white",
+      "font-semibold",
+      "shadow-xl",
+      "transition-all duration-300",
+      "transform hover:scale-[1.02] active:scale-[0.98]",
+      "focus:outline-none focus:ring-4 focus:ring-purple-500/50",
+      "disabled:opacity-70",
+      "disabled:cursor-not-allowed",
+      "disabled:hover:scale-100"
     ),
     secondary: "", // Add secondary overrides if needed
     destructive: "", // Add destructive overrides if needed
@@ -33,8 +38,8 @@ export function ULThemePrimaryButton({
   const sizeThemeOverrides = {
     default: cn(
       "theme-universal:rounded-button",
-      "theme-universal:font-button", //font-weight
-      "theme-universal:text-(length:--ul-theme-font-buttons-text-size)" //font-size
+      "theme-universal:font-button",
+      "theme-universal:text-(length:--ul-theme-font-buttons-text-size)"
     ),
     xs: cn(
       "theme-universal:rounded-button",

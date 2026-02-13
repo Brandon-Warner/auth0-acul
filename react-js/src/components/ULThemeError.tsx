@@ -16,11 +16,13 @@ function ULThemeAlert({
   const variantThemeOverrides = {
     destructive: cn(
       "p-4",
-      "theme-universal:bg-error", //background-color
-      "theme-universal:text-(--ul-theme-color-primary-button-label)", //text-color
-      "theme-universal:rounded-button", //border-radius
-      "theme-universal:font-body", //font-weight
-      "theme-universal:text-(length:--ul-theme-font-body-text-size)" //font-size
+      "border-2",
+      "shadow-lg",
+      "theme-universal:bg-error",
+      "theme-universal:text-(--ul-theme-color-primary-button-label)",
+      "theme-universal:rounded-button",
+      "theme-universal:font-body",
+      "theme-universal:text-(length:--ul-theme-font-body-text-size)"
     ),
   };
 

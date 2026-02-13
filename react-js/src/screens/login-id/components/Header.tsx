@@ -14,11 +14,20 @@ function Header() {
   const description = texts?.description || locales.header.description;
 
   return (
-    <>
-      <ULThemeLogo altText={logoAltText} />
-      <ULThemeTitle>{title}</ULThemeTitle>
-      <ULThemeSubtitle>{description}</ULThemeSubtitle>
-    </>
+    <div className="relative">
+      {/* Subtle gradient glow behind header */}
+      <div className="absolute -inset-4 bg-gradient-to-r from-indigo-200/20 via-purple-200/20 to-pink-200/20 blur-2xl -z-10"></div>
+
+      <div className="relative">
+        <ULThemeLogo altText={logoAltText} />
+        <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text">
+          <ULThemeTitle className="text-transparent">{title}</ULThemeTitle>
+        </div>
+        <ULThemeSubtitle className="text-gray-600">
+          {description}
+        </ULThemeSubtitle>
+      </div>
+    </div>
   );
 }
 
