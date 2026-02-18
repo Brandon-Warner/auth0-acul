@@ -1,48 +1,49 @@
-// import { act, render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 
-// import type { MockLoginPasswordInstance } from "@/__mocks__/@auth0/auth0-acul-js/login-password";
-// import {
-//   getMockLoginPasswordInstance,
-//   resetMockLoginPasswordInstance,
-// } from "@/__mocks__/@auth0/auth0-acul-js/login-password";
-// import { ScreenTestUtils } from "@/test/utils/screen-test-utils";
+import type { MockLoginPasswordInstance } from "@/__mocks__/@auth0/auth0-acul-js/login-password";
+import {
+  getMockLoginPasswordInstance,
+  resetMockLoginPasswordInstance,
+} from "@/__mocks__/@auth0/auth0-acul-js/login-password";
+import { ScreenTestUtils } from "@/test/utils/screen-test-utils";
 
-// import LoginPasswordScreen from "../index";
+import LoginPasswordScreen from "../index";
 
-// // Mock extractTokenValue to return a default value
-// jest.mock("@/utils/helpers/tokenUtils", () => ({
-//   extractTokenValue: jest.fn(() => "bottom"),
-// }));
+// Mock extractTokenValue to return a default value
+jest.mock("@/utils/helpers/tokenUtils", () => ({
+  extractTokenValue: jest.fn(() => "bottom"),
+}));
 
-// describe("LoginPasswordScreen", () => {
-//   let mockInstance: MockLoginPasswordInstance;
+describe("LoginPasswordScreen", () => {
+  let mockInstance: MockLoginPasswordInstance;
 
-//   const renderScreen = async () => {
-//     await act(async () => {
-//       render(<LoginPasswordScreen />);
-//     });
-//     await screen.findByRole("button", { name: /mock continue/i });
-//   };
+  const renderScreen = async () => {
+    await act(async () => {
+      render(<LoginPasswordScreen />);
+    });
+    await screen.findByRole("button", { name: /mock continue/i });
+  };
 
-//   beforeEach(() => {
-//     jest.clearAllMocks();
-//     resetMockLoginPasswordInstance();
-//     mockInstance = getMockLoginPasswordInstance();
-//   });
+  beforeEach(() => {
+    jest.clearAllMocks();
+    resetMockLoginPasswordInstance();
+    mockInstance = getMockLoginPasswordInstance();
+  });
 
-//   it("should submit form with username and password", async () => {
-//     await renderScreen();
+  it("should submit form with username and password", async () => {
+    await renderScreen();
 
-//     await ScreenTestUtils.fillInput(/password/i, "TestPass123!");
-//     await ScreenTestUtils.clickButton(/mock continue/i);
+    await ScreenTestUtils.fillInput(/password/i, "TestPass123!");
+    await ScreenTestUtils.clickButton(/mock continue/i);
 
-//     expect(mockInstance.login).toHaveBeenCalledWith(
-//       expect.objectContaining({
-//         username: "test@example.com",
-//         password: "TestPass123!",
-//       })
-//     );
-//   });
+    expect(mockInstance.login).toHaveBeenCalledWith(
+      expect.objectContaining({
+        username: "test@example.com",
+        password: "TestPass123!",
+      })
+    );
+  });
+});
 
 //   it("should display errors from SDK", async () => {
 //     mockInstance.getErrors.mockReturnValue([
