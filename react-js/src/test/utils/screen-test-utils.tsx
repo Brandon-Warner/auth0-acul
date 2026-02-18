@@ -19,6 +19,25 @@ export class ScreenTestUtils {
       input = elements.find((el) => el.tagName === "INPUT") || null;
     }
 
+    // If still not found, try finding by placeholder
+    if (!input) {
+      input = screen.queryByPlaceholderText(labelPattern);
+    }
+
+    // If still not found, try finding input by nearby label text
+    if (!input) {
+      const labels = screen.queryAllByText(labelPattern);
+      for (const label of labels) {
+        // Find the closest input element
+        const container = label.closest("div");
+        const inputElement = container?.querySelector("input");
+        if (inputElement) {
+          input = inputElement;
+          break;
+        }
+      }
+    }
+
     if (!input) {
       throw new Error(
         `Could not find input element with label matching: ${labelPattern}`
