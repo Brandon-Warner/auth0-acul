@@ -31,11 +31,8 @@ function LoginPasswordScreen() {
 
   const { texts, data, links, isCaptchaAvailable, captcha, resetPasswordLink } =
     screen;
-  const {
-    isForgotPasswordEnabled,
-    passwordPolicy,
-    allowedIdentifiers = [],
-  } = transaction;
+  const { isForgotPasswordEnabled, passwordPolicy, allowedIdentifiers } =
+    transaction;
 
   const form = useForm<LoginPasswordOptions>({
     defaultValues: {
@@ -71,7 +68,7 @@ function LoginPasswordScreen() {
   const captchaSDKError = getFieldError("captcha", errors);
 
   const { label: usernameLabel, type: usernameType } = getIdentifierDetails(
-    allowedIdentifiers,
+    allowedIdentifiers || [],
     texts
   );
 
@@ -267,8 +264,7 @@ function LoginPasswordScreen() {
                           </div>
                           {(fieldState.error || usernameSDKError) && (
                             <p className="mt-2 text-sm text-red-600 font-medium">
-                              {usernameSDKError?.message ||
-                                fieldState.error?.message}
+                              {usernameSDKError || fieldState.error?.message}
                             </p>
                           )}
                         </div>
@@ -371,8 +367,7 @@ function LoginPasswordScreen() {
                           </div>
                           {(fieldState.error || passwordSDKError) && (
                             <p className="mt-2 text-sm text-red-600 font-medium">
-                              {passwordSDKError?.message ||
-                                fieldState.error?.message}
+                              {passwordSDKError || fieldState.error?.message}
                             </p>
                           )}
                         </div>
