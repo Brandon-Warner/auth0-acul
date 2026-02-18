@@ -38,10 +38,6 @@ const AlternativeLogins = () => {
       {/* Decorative divider with text */}
       <div className="relative flex items-center justify-center mb-6">
         <div className="flex-grow border-t border-gray-300"></div>
-        <span className="flex-shrink mx-4 text-sm font-medium text-gray-500 uppercase tracking-wider">
-          Or continue with
-        </span>
-        <div className="flex-grow border-t border-gray-300"></div>
       </div>
 
       {/* Passkey special treatment */}
