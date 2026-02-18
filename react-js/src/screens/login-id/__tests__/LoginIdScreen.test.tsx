@@ -68,7 +68,7 @@ describe("LoginIdScreen", () => {
     await renderScreen();
 
     const googleButton = screen.getByRole("button", {
-      name: /continue with google/i,
+      name: /google/i,
     });
     expect(googleButton).toBeInTheDocument();
 

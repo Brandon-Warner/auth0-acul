@@ -58,17 +58,7 @@ describe("ULThemeSubtitle Component", () => {
       <ULThemeSubtitle className="custom-class">Test Subtitle</ULThemeSubtitle>
     );
     expect(container.firstChild).toHaveClass(
-      "mb-4 text-body-text justify-text-header text-(length:--ul-theme-font-subtitle-size) font-subtitle"
-    );
-    expect(container.firstChild).toHaveClass("custom-class");
-  });
-
-  it("combines themed styles and custom className", () => {
-    const { container } = render(
-      <ULThemeSubtitle className="custom-class">Test Subtitle</ULThemeSubtitle>
-    );
-    expect(container.firstChild).toHaveClass(
-      "mb-4 text-body-text justify-text-header text-(length:--ul-theme-font-subtitle-size) font-subtitle"
+      "mb-4 text-gray-600 justify-text-header text-(length:--ul-theme-font-subtitle-size) font-subtitle"
     );
     expect(container.firstChild).toHaveClass("custom-class");
   });
