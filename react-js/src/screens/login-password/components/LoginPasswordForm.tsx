@@ -55,9 +55,8 @@ function LoginPasswordForm() {
     texts?.forgotPasswordText || locales.form.forgotPassword;
   const editText = texts?.editEmailText || locales.form.fields.username.edit;
 
-  const generalErrors =
-    errors?.filter((error: Error) => !error.field || error.field === null) ||
-    [];
+  const generalErrors: Error[] =
+    errors?.filter((error) => !error.field || error.field === null) || [];
 
   const usernameSDKError =
     getFieldError("username", errors) || getFieldError("email", errors);
@@ -85,7 +84,7 @@ function LoginPasswordForm() {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         {generalErrors.length > 0 && (
           <div className="space-y-3 mb-4">
-            {generalErrors.map((error: Error, index: number) => (
+            {generalErrors.map((error, index: number) => (
               <ULThemeAlert key={index} variant="destructive">
                 <ULThemeAlertTitle>{error.message}</ULThemeAlertTitle>
               </ULThemeAlert>

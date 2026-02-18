@@ -58,9 +58,8 @@ function LoginPasswordScreen() {
     texts?.forgotPasswordText || locales.form.forgotPassword;
   const editText = texts?.editEmailText || locales.form.fields.username.edit;
 
-  const generalErrors =
-    errors?.filter((error: Error) => !error.field || error.field === null) ||
-    [];
+  const generalErrors: Error[] =
+    errors?.filter((error) => !error.field || error.field === null) || [];
 
   const usernameSDKError =
     getFieldError("username", errors) || getFieldError("email", errors);
@@ -68,7 +67,7 @@ function LoginPasswordScreen() {
   const captchaSDKError = getFieldError("captcha", errors);
 
   const { label: usernameLabel, type: usernameType } = getIdentifierDetails(
-    allowedIdentifiers || [],
+    allowedIdentifiers ?? undefined,
     texts
   );
 
@@ -184,7 +183,7 @@ function LoginPasswordScreen() {
               {/* Error Messages */}
               {generalErrors.length > 0 && (
                 <div className="mb-6 space-y-3">
-                  {generalErrors.map((error: Error, index: number) => (
+                  {generalErrors.map((error, index: number) => (
                     <div
                       key={index}
                       className="p-4 bg-red-50 border-l-4 border-red-500 rounded-lg"

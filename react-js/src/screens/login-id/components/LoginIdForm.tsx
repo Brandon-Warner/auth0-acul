@@ -64,9 +64,8 @@ function LoginIdForm() {
     autoComplete: identifierAutoComplete,
   } = getIdentifierDetails(loginIdentifiers, texts);
 
-  const generalErrors =
-    errors?.filter((error: Error) => !error.field || error.field === null) ||
-    [];
+  const generalErrors: Error[] =
+    errors?.filter((error) => !error.field || error.field === null) || [];
 
   const identifierSDKError =
     getFieldError("identifier", errors) ||
