@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "initialize": "npm install && npm run build",
-    "build": "tsc && vite build --logLevel info",
+    "build": "vite build --logLevel info",
+    "build:check": "tsc && vite build --logLevel info",
     "build:local": "PORT=8080 node ./scripts/build-local.js",
     "build:watch": "vite build --watch",
     "dev": "vite dev",
