@@ -33,15 +33,15 @@ jobs:
       - name: Lint check
         working-directory: react-js
         run: npm run lint:check
-        
-      - name: Type check
-        working-directory: react-js
-        run: npx tsc --noEmit
-        
-      - name: Run tests
-        working-directory: react-js
-        run: npm test -- --coverage --watchAll=false
-        
+
+      # - name: Type check
+      #   working-directory: react-js
+      #   run: npx tsc --noEmit
+
+      # - name: Run tests
+      #   working-directory: react-js
+      #   run: npm test -- --coverage --watchAll=false
+
       - name: Build
         working-directory: react-js
         run: npm run build

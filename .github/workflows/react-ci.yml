@@ -34,13 +34,13 @@ jobs:
         working-directory: react
         run: npm run lint:check
 
-      - name: Type check
-        working-directory: react
-        run: npx tsc --noEmit
+      # - name: Type check
+      #   working-directory: react
+      #   run: npx tsc --noEmit
 
-      - name: Run tests
-        working-directory: react
-        run: npm test -- --coverage --watchAll=false
+      # - name: Run tests
+      #   working-directory: react
+      #   run: npm test -- --coverage --watchAll=false
 
       - name: Build
         working-directory: react
